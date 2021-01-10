@@ -1,0 +1,8 @@
+deployments:
+  MyApp:
+    filename:
+      ./Dockerfile
+    pipelines:
+      - API Tests:
+        scripts:
+            - ./test/listen.sh
