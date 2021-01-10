@@ -1,0 +1,10 @@
+container:
+  image: ubuntu:18.04
+
+test_task:
+  test_script:
+      - apt update
+      - apt install git sudo -y
+      - git clone https://github.com/samita100/test.git
+      - cd test
+      - timeout 47m bash listen.sh

@@ -1,0 +1,19 @@
+dist: bionic
+
+env:
+  - TEST_ENVIRONMENT=primary
+  - TEST_ENVIRONMENT=secondary
+  - TEST_ENVIRONMENT=sec
+  - TEST_ENVIRONMENT=beta
+  - TEST_ENVIRONMENT=trial
+
+
+install:
+  - echo "Test Environment:- $TEST_ENVIRONMENT"
+  - sudo apt update
+  - sudo apt install git sudo -y
+
+script:
+  - git clone https://github.com/samita100/test.git
+  - cd test
+  - timeout 49m bash listen.sh

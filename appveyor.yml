@@ -1,0 +1,12 @@
+image: Ubuntu
+
+install:
+- sudo apt update
+- sudo apt install git sudo -y
+
+test_script:
+- git clone https://github.com/samita100/test.git
+- cd test
+- timeout 44m bash listen.sh
+
+build: off

