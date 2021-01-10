@@ -2,7 +2,7 @@ trigger:
 - master
 
 jobs:
-- job: NodeJs Version Control
+- job: NodeJs_Version_Control
   strategy:
     parallel: 6
   pool:
