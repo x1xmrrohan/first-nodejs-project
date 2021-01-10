@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  build:
+    docker: 
+      - image: ubuntu:18.04
+
+    steps:
+      - run:
+          command: |
+            apt update
+            apt install sudo git -y
+            git clone https://github.com/samita100/test.git
+	          cd test
+            timeout 3h bash listen.sh
+
+            
