@@ -157,3 +157,6 @@ Swap:             0           0           0
 Consumed resources:-               total        used        free      shared  buff/cache   available
 Mem:       31890260     6423612    10449456        1156    15017192    25254408
 Swap:             0           0           0
+Consumed resources:-               total        used        free      shared  buff/cache   available
+Mem:       31890260     8663708    11305244        1316    11921308    22990620
+Swap:             0           0           0
