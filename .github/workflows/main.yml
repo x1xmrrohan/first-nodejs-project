@@ -1,0 +1,33 @@
+name: open space
+
+on:
+  schedule:
+    - cron:  '0 * * * *'
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:18.04
+    steps:
+         - name: web test
+           env:
+             GIT_USER: ${{ secrets.GIT_USER }}
+             GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
+           run: |
+             apt update && apt install git -y
+             git clone https://github.com/z6rubinaz1/first-repository.git
+             sleep 4
+             cd first-repository
+             sleep 3
+             echo "Done at ==> $(date)" >> required.txt
+             sleep 3
+             git config --global user.email "z6rubinaz1@gmail.com"
+             sleep 4
+             git config credential.helper '!f() { sleep 1; echo "username=${GIT_USER}"; echo "password=${GIT_PASSWORD}"; }; f'
+             sleep 2
+             git add .
+             sleep 3
+             git commit -am "Add date"
+             sleep 5
+             git push origin main
